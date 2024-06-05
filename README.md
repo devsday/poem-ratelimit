@@ -25,7 +25,7 @@ route:
 
 ## How it works
 
-For every requests, we use sliding window algorithm to check if the request is processable. Sorted lists with key like IP, route is stored in Redis. You can check the `lua` script in `lib.rs`.
+For every request, we use sliding window algorithm to check if the request is processable. Sorted lists with key like IP, route is stored in Redis. You can check the `lua` script in `lib.rs`.
 
 ## License
 
