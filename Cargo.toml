@@ -14,7 +14,7 @@ keywords = ["ratelimit"]
 categories = ["web-programming"]
 
 [dependencies]
-redis = { version = "0.21", features = ["tokio-comp"] }
+redis = { version = "0.25.4", features = ["tokio-comp"] }
 poem = "3.0.1"
 serde = { version = "1.0", features = ["derive"] }
 thiserror = "1.0.30"
