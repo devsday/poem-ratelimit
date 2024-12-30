@@ -1,12 +1,12 @@
 use poem::error::InternalServerError;
-use poem::{async_trait, Endpoint, Middleware, Request, Result};
+use poem::{Endpoint, Middleware, Request, Result};
 use redis::aio::ConnectionLike;
 use redis::Script;
 
 use crate::{key, Config, ConfigRecord, RateLimitError};
 
 /// Rate limit middleware
-/// 
+///
 /// This middleware is used to limit the number of requests per second.
 /// A sliding window script is invoked when a request comes in. Redis is used to store data.
 pub struct RateLimiter<C> {
@@ -78,7 +78,7 @@ where
             .arg(key)
             .arg(time_window)
             .arg(max_requests)
-            .invoke_async::<_, i32>(&mut connection)
+            .invoke_async::<i32>(&mut connection)
             .await
             .map_err(InternalServerError)?;
 
@@ -90,7 +90,6 @@ where
     }
 }
 
-#[async_trait]
 impl<C, E> Endpoint for RateLimiterImpl<C, E>
 where
     C: ConnectionLike + Clone + Sync + Send,
