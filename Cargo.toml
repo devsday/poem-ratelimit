@@ -17,7 +17,7 @@ categories = ["web-programming"]
 redis = { version = "0.27.6", features = ["tokio-comp"] }
 poem = "3.1.5"
 serde = { version = "1.0", features = ["derive"] }
-thiserror = "2.0.9"
+thiserror = "2.0"
 
 [dev-dependencies]
 serde_yaml = "0.9.33"
